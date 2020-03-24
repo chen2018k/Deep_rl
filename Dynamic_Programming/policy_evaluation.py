@@ -20,8 +20,8 @@ def policy_evaluation(env, policy, gamma=1, theta=1e-8):
     return V
 
 #截断的策略评估:（策略、MDP -> V）
-def truncated_policy_evaluation(env, policy, max_num,gamma=1):
-    V = np.zeros(env.nS)
+def truncated_policy_evaluation(env, policy,V,max_num,gamma=1):
+    # V = np.zeros(env.nS)
     counter = 0
     while (counter < max_num):
         for s in range(env.nS):

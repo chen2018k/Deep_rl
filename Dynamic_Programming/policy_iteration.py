@@ -35,17 +35,18 @@ def truncated_policy_iteration(env, max_num,gamma=1, theta=1e-8):
     while True:
         policy = policy_improvement(env,V,gamma)
         V_old = copy.copy(V)
-        V = truncated_policy_evaluation(env,policy,max_num)
+        V = truncated_policy_evaluation(env,policy,V,max_num)
         if (np.max(np.abs(V_old - V))) < theta:
             break
+
     # 此时输出的策略近似于最优策略
     return policy, V
 
-# env = FrozenLakeEnv()
-# policy_pi, V_pi = truncated_policy_iteration(env,1000)
-# #
-# # # print the optimal policy
-# # print("\nOptimal Policy (LEFT = 0, DOWN = 1, RIGHT = 2, UP = 3):")
-# # print(policy_pi,"\n")
-# #
-# plot_values(V_pi)
+env = FrozenLakeEnv()
+policy_pi, V_pi = truncated_policy_iteration(env,100)
+#
+# # print the optimal policy
+# print("\nOptimal Policy (LEFT = 0, DOWN = 1, RIGHT = 2, UP = 3):")
+# print(policy_pi,"\n")
+#
+plot_values(V_pi)
