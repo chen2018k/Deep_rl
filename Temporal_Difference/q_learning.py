@@ -83,9 +83,9 @@ def q_learning(env, num_episodes, alpha, gamma=1.0, plot_every=100):
 
 
 
-# Q_sarsamax = q_learning(env, 50000, .01)
+Q_sarsamax = q_learning(env, 50000, .01)
 # policy_sarsamax = np.array([np.argmax(Q_sarsamax[key]) if key in Q_sarsamax else -1 for key in np.arange(48)]).reshape((4,12))
-# 
+#
 # print("\nEstimated Optimal Policy (UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3, N/A = -1):")
 # print(policy_sarsamax)
 #
